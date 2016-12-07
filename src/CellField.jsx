@@ -1,4 +1,6 @@
 
+/* eslint-disable class-methods-use-this */
+
 const classnames = require('classnames');
 const assgin = require('object-assign');
 const React = require('react');
@@ -55,9 +57,8 @@ class CellField extends React.Component {
     return pass;
   }
 
-
   addSpecificClass() {
-    return this.props.prefixCls;
+    return '';
   }
 
 
@@ -84,7 +85,8 @@ class CellField extends React.Component {
       <div
         className={classnames({
           hasError: !me.state.pass,
-          [specificCls]: true,
+          [specificCls]: !!specificCls,
+          [me.props.prefixCls]: true,
           [me.props.className]: !!me.props.className,
         })}
       >
