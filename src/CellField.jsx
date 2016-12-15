@@ -30,7 +30,7 @@ class CellField extends React.Component {
 
   validate(value, cb) {
     const me = this;
-    const actualValue = value || me.props.value;
+    const actualValue = value === undefined ? me.props.value : value;
     const rowData = me.props.rowData;
     const { rules } = me.props.column;
     let pass = true;

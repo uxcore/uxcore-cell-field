@@ -1,5 +1,9 @@
 # history
 
+## 0.1.3
+
+* `FIXED` validator will pass wrong value if value is 0 or empty string
+
 ## 0.1.2
 
 * `CHANGED` `addSpecificClass` method logic
