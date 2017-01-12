@@ -15,12 +15,16 @@ class CellField extends React.Component {
 
   componentDidMount() {
     const me = this;
-    me.props.attachCellField(me.validate.bind(this), me.getName());
+    if (!me.props.standalone) {
+      me.props.attachCellField(me.validate.bind(this), me.getName());
+    }
   }
 
   componentWillUnmount() {
     const me = this;
-    me.props.detachCellField(me.getName());
+    if (!me.props.standalone) {
+      me.props.detachCellField(me.getName());
+    }
   }
 
   getName() {
@@ -46,6 +50,11 @@ class CellField extends React.Component {
           break;
         }
       }
+    } else if (typeof rules === 'function') {
+      // pass should be false if rules return a string which is an errMsg;
+      errMsg = rules(actualValue, rowData);
+      pass = (errMsg === true || errMsg === undefined);
+      errMsg = typeof errMsg === 'boolean' ? '' : errMsg;
     }
     if (cb) {
       cb(pass);
@@ -99,10 +108,12 @@ class CellField extends React.Component {
 CellField.displayName = 'CellField';
 CellField.propTypes = {
   prefixCls: React.PropTypes.string,
+  standalone: React.PropTypes.bool,
 };
 
 CellField.defaultProps = {
   prefixCls: 'kuma-uxtable-cell-field',
+  standalone: false,
 };
 
 module.exports = CellField;
