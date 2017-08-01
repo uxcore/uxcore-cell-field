@@ -6,12 +6,15 @@
  * All rights reserved.
  */
 
-const React = require('react');
-const Table = require('uxcore-table');
+import React from 'react';
+import Table from 'uxcore-table';
 
-const CellField = require('../src');
+import CellField from '../src';
 
 const { Constants } = Table;
+const { createCellField } = CellField;
+
+const CustomField = createCellField();
 
 class Demo extends React.Component {
 
@@ -30,7 +33,19 @@ class Demo extends React.Component {
 
   render() {
     const columns = [
-      { dataKey: 'text', editKey: 'startVal', title: 'Start Date', width: 200, type: 'custom', customField: CellField, rules: (value, rowData) => false },
+      {
+        dataKey: 'text',
+        editKey: 'text',
+        title: 'Start Date',
+        width: 200,
+        type: 'custom',
+        customField: CustomField,
+        rules: (value, rowData) => {
+          if (value.length > 5) {
+            return '长度超长报错信息非常长非常长非常长非常长非常长非常长非常长非常长~';
+          }
+        },
+      },
       {
         dataKey: 'action1',
         width: '120',
@@ -94,4 +109,4 @@ class Demo extends React.Component {
   }
 }
 
-module.exports = Demo;
+export default Demo;

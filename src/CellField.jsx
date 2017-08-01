@@ -1,9 +1,10 @@
 
 /* eslint-disable class-methods-use-this */
 
-const classnames = require('classnames');
-const assgin = require('object-assign');
-const React = require('react');
+import classnames from 'classnames';
+import assgin from 'object-assign';
+import React from 'react';
+import Tooltip from 'uxcore-tooltip';
 
 class CellField extends React.Component {
   constructor(props) {
@@ -59,10 +60,14 @@ class CellField extends React.Component {
     if (cb) {
       cb(pass);
     }
-    me.setState({
+    const newState = {
       pass,
-      errMsg,
-    });
+    };
+
+    if (errMsg) {
+      newState.errMsg = errMsg;
+    }
+    me.setState(newState);
     return pass;
   }
 
@@ -90,6 +95,19 @@ class CellField extends React.Component {
   render() {
     const me = this;
     const specificCls = me.addSpecificClass();
+    let content = me.renderContent();
+    if (content) {
+      content = (
+        <Tooltip
+          placement="bottom"
+          overlay={<span>{this.state.errMsg}</span>}
+          visible={!this.state.pass && this.state.errMsg}
+          overlayClassName={`${me.props.prefixCls}-tooltip`}
+        >
+          {content}
+        </Tooltip>
+      );
+    }
     return (
       <div
         className={classnames({
@@ -99,7 +117,7 @@ class CellField extends React.Component {
           [me.props.className]: !!me.props.className,
         })}
       >
-        {me.renderContent()}
+        {content}
       </div>
     );
   }
@@ -116,4 +134,4 @@ CellField.defaultProps = {
   standalone: false,
 };
 
-module.exports = CellField;
+export default CellField;

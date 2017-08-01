@@ -1,5 +1,9 @@
 # history
 
+## 0.2.0
+
+* `CHANGED` support errMsg
+
 ## 0.1.4
 
 * `CHANGED` rules support type `function`

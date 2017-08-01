@@ -1,6 +1,6 @@
 {
  "name": "uxcore-cell-field",
- "version": "0.1.4",
+ "version": "0.2.0",
  "description": "uxcore-cell-field component for uxcore.",
  "repository": "https://github.com/uxcore/uxcore-cell-field.git",
  "author": "eternalsky",
@@ -14,6 +14,7 @@
   "coverage": "uxcore-tools run coverage",
   "pub": "uxcore-tools run pub",
   "dep": "uxcore-tools run dep",
+  "update": "uxcore-tools run update",
   "tnpm-dep": "uxcore-tools run tnpm-dep",
   "saucelabs": "uxcore-tools run saucelabs",
   "chrome": "uxcore-tools run chrome",
@@ -37,13 +38,14 @@
   "react": "0.14.x",
   "react-addons-test-utils": "0.14.x",
   "react-dom": "0.14.x",
-  "uxcore-kuma": "2.x",
-  "uxcore-table": "^1.12.5",
+  "uxcore-kuma": "*",
+  "uxcore-table": "*",
   "uxcore-tools": "0.2.x"
  },
  "dependencies": {
   "classnames": "^2.1.2",
-  "object-assign": "^4.0.0"
+  "object-assign": "^4.0.0",
+  "uxcore-tooltip": "^0.4.5"
  },
  "contributors": [],
  "license": "MIT"

@@ -6,4 +6,9 @@
  * All rights reserved.
  */
 
-module.exports = require('./CellField');
+import CellField from './CellField';
+import createCellField from './createCellField';
+
+CellField.createCellField = createCellField;
+
+export default CellField;
