@@ -17,7 +17,6 @@ const { createCellField } = CellField;
 const CustomField = createCellField();
 
 class Demo extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -40,10 +39,11 @@ class Demo extends React.Component {
         width: 200,
         type: 'custom',
         customField: CustomField,
-        rules: (value, rowData) => {
+        rules: (value) => {
           if (value.length > 5) {
             return '长度超长报错信息非常长非常长非常长非常长非常长非常长非常长非常长~';
           }
+          return true;
         },
       },
       {

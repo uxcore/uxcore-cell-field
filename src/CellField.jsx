@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import assgin from 'object-assign';
 import React from 'react';
 import Tooltip from 'uxcore-tooltip';
+import PropTypes from 'prop-types';
 
 class CellField extends React.Component {
   constructor(props) {
@@ -125,8 +126,8 @@ class CellField extends React.Component {
 
 CellField.displayName = 'CellField';
 CellField.propTypes = {
-  prefixCls: React.PropTypes.string,
-  standalone: React.PropTypes.bool,
+  prefixCls: PropTypes.string,
+  standalone: PropTypes.bool,
 };
 
 CellField.defaultProps = {
