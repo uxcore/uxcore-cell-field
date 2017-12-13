@@ -1,5 +1,9 @@
 # history
 
+## 0.2.2
+
+* `CHANGED` fit React@15 in `createCellField`
+
 ## 0.2.1
 
 * `CHANGED` fit React@15

@@ -1,13 +1,14 @@
 import assign from 'object-assign';
 import React from 'react';
+import PropTypes from 'prop-types';
 import CellField from './CellField';
 
 const Input = props =>
   <input className="kuma-input" {...props} value={props.value} onChange={(e) => { props.onChange(e.target.value); }} />;
 
 Input.propTypes = {
-  value: React.PropTypes.string,
-  onChange: React.PropTypes.func,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 const createCellField = (options) => {
