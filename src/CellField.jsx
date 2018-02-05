@@ -2,7 +2,7 @@
 /* eslint-disable class-methods-use-this */
 
 import classnames from 'classnames';
-import assgin from 'object-assign';
+import assign from 'object-assign';
 import React from 'react';
 import Tooltip from 'uxcore-tooltip';
 import PropTypes from 'prop-types';
@@ -81,7 +81,7 @@ class CellField extends React.Component {
     const me = this;
     const { value } = obj;
     me.validate(value, (pass) => {
-      me.props.handleDataChange(assgin({}, obj, {
+      me.props.handleDataChange(assign({}, obj, {
         jsxid: me.props.rowData.jsxid,
         column: me.props.column,
         pass,
