@@ -1,5 +1,9 @@
 # history
 
+## 0.2.3
+
+* `CHANGED` pass `getTooltipContainer` to Tooltip
+
 ## 0.2.2
 
 * `CHANGED` fit React@15 in `createCellField`

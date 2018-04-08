@@ -104,6 +104,7 @@ class CellField extends React.Component {
           overlay={<span>{this.state.errMsg}</span>}
           visible={!this.state.pass && this.state.errMsg}
           overlayClassName={`${me.props.prefixCls}-tooltip`}
+          getTooltipContainer={me.props.getTooltipContainer}
         >
           {content}
         </Tooltip>
